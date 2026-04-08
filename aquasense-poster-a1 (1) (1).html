@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AQUA-SENSE Poster A1</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width: 794px;
+  background: #f5ede0;
+  font-family: 'Source Sans 3', sans-serif;
+  color: #1a1a2e;
+}
+@media print {
+  body { width:594mm; }
+  .no-print { display:none; }
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #0d1b3e 0%, #0a3d62 60%, #0d1b3e 100%);
+  padding: 22px 28px 18px;
+  position: relative; overflow: hidden;
+}
+.header::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:200px; height:200px; border-radius:50%;
+  border:2px solid rgba(0,229,255,0.12);
+}
+.tag {
+  display:inline-block;
+  background:rgba(0,229,255,0.15); border:1px solid rgba(0,229,255,0.4);
+  color:#00e5ff; font-family:'Courier Prime',monospace;
+  font-size:8px; letter-spacing:2px; padding:3px 10px;
+  border-radius:2px; margin-bottom:10px;
+}
+.main-title {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:20px; color:#fff; line-height:1.2;
+  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:5px;
+}
+.main-title span { color:#00e5ff; }
+.subtitle {
+  font-family:'Montserrat',sans-serif; font-weight:600;
+  font-size:10px; color:rgba(255,255,255,0.65);
+  letter-spacing:3px; text-transform:uppercase;
+}
+.header-meta {
+  display:flex; gap:16px; margin-top:14px;
+  padding-top:12px; border-top:1px solid rgba(255,255,255,0.1);
+  align-items:center;
+}
+.meta-block { flex:1; }
+.meta-label {
+  font-family:'Courier Prime',monospace; font-size:7.5px;
+  color:#00e5ff; letter-spacing:2px; text-transform:uppercase; margin-bottom:3px;
+}
+.meta-value { font-size:9px; color:rgba(255,255,255,0.82); line-height:1.55; }
+.badge {
+  background:rgba(0,229,255,0.12); border:1.5px solid #00e5ff;
+  color:#00e5ff; font-family:'Montserrat',sans-serif;
+  font-weight:800; font-size:10px; padding:8px 14px;
+  border-radius:4px; letter-spacing:1px; text-align:center; white-space:nowrap;
+}
+
+/* ── STATS BAR ── */
+.stats-row {
+  display:flex; background:#0d1b3e;
+}
+.stat-item {
+  flex:1; text-align:center; padding:13px 6px;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:22px; line-height:1; margin-bottom:4px;
+}
+.stat-desc { font-size:8px; color:rgba(255,255,255,0.6); line-height:1.35; }
+
+/* ── SECTION LABEL ── */
+.slabel {
+  font-family:'Courier Prime',monospace; font-size:7.5px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:#fff; padding:2px 8px; border-radius:2px;
+  display:inline-block; margin-bottom:8px;
+}
+.lb  { background:#0a3d62; }
+.lr  { background:#c0392b; }
+.lg  { background:#1a6b3a; }
+.lp  { background:#4a235a; }
+.lt  { background:#0e6655; }
+.ld  { background:#1a1a2e; }
+
+.sec-title { font-size:16px !important;
+  font-family:'Montserrat',sans-serif; font-weight:800;
+  font-size:16px; color:#0d1b3e; margin-bottom:10px; line-height:1.2;
+}
+
+/* ── GRID ── */
+.row {
+  display:grid; border-bottom:1px solid #ddd0bc;
+}
+.row-3 { grid-template-columns:1fr 1fr 1fr; }
+.row-2 { grid-template-columns:1.1fr 0.9fr; }
+.row-1 { grid-template-columns:1fr; }
+
+.cell {
+  padding:16px 18px;
+  border-right:1px solid #ddd0bc;
+  background: #faf3e8;
+}
+.cell:last-child { border-right:none; }
+
+/* ── ARCHITECTURE ── */
+.arch-step {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:9px 11px; border-radius:5px; border-left:3px solid;
+  margin-bottom:6px;
+}
+.s1{background:rgba(0,229,255,0.08);border-color:#00e5ff;}
+.s2{background:rgba(0,200,120,0.08);border-color:#00ff9d;}
+.s3{background:rgba(255,200,0,0.08);border-color:#ffe600;}
+.s4{background:rgba(255,64,64,0.08);border-color:#ff4040;}
+.s5{background:rgba(161,80,255,0.08);border-color:#a150ff;}
+.sn {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:18px; line-height:1; min-width:22px;
+}
+.s1 .sn{color:#00e5ff;} .s2 .sn{color:#00ff9d;}
+.s3 .sn{color:#ffe600;} .s4 .sn{color:#ff4040;} .s5 .sn{color:#a150ff;}
+.st { font-size:10.5px; line-height:1.55; color:#2c3e50; }
+.st strong { color:#0d1b3e; }
+
+/* ── BIG VISUAL NUMBERS (impact section) ── */
+.big-nums {
+  display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;
+}
+.bn-item {
+  border-radius:8px; padding:12px 10px; text-align:center;
+}
+.bn-num {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:28px; line-height:1; margin-bottom:4px;
+}
+.bn-label { font-size:9px; line-height:1.4; color:#444; }
+
+/* ── COMPARE TABLE ── */
+.ctable { width:100%; border-collapse:collapse; font-size:13px; }
+.ctable th {
+  font-family:'Montserrat',sans-serif; font-weight:700;
+  font-size:12px; padding:8px 10px; text-align:left; letter-spacing:0.3px;
+}
+.th-m{background:#0d1b3e;color:#fff;}
+.th-b{background:#c0392b;color:#fff;}
+.th-a{background:#1a6b3a;color:#fff;}
+.ctable td { padding:8px 10px; border-bottom:1px solid #ddd0bc; font-size:13px; }
+.ctable tr:last-child td { border-bottom:none; }
+.ctable tr:nth-child(even) td { background:#f5ece0; }
+.tb { color:#c0392b; font-weight:700; }
+.ta { color:#1a6b3a; font-weight:700; }
+
+/* ── FEATURES ── */
+.feat {
+  display:flex; align-items:flex-start;
+  gap:10px; margin-bottom:10px;
+}
+.feat-icon {
+  font-size:20px; line-height:1; min-width:26px; text-align:center;
+}
+.feat-text { font-size:15px; line-height:1.6; color:#2c3e50; }
+.feat-text strong { color:#0d1b3e; font-size:12px; }
+
+/* ── BANGLADESH BOX ── */
+.bgd {
+  background:linear-gradient(135deg,#0a1628,#0d2b45);
+  border-radius:8px; padding:14px; border-left:4px solid #00e5ff;
+  margin-top:10px;
+}
+.bgd-title {
+  font-family:'Montserrat',sans-serif; font-weight:800;
+  font-size:12px; color:#00e5ff; margin-bottom:6px;
+}
+.bgd-nums {
+  display:flex; align-items:center; gap:14px; margin:10px 0;
+}
+.bgd-n {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:26px; line-height:1;
+}
+.bgd-arrow { font-size:20px; color:rgba(255,255,255,0.4); }
+.bgd-sub { font-size:8.5px; color:rgba(255,255,255,0.55); }
+.bgd-body { font-size:13.5px; color:rgba(255,255,255,0.8); line-height:1.6; }
+.bgd-src { font-size:8px; color:rgba(255,255,255,0.35); margin-top:6px; }
+
+/* ── VISION ── */
+.role-item {
+  display:flex; align-items:flex-start; gap:10px;
+  padding:9px 11px; border-radius:5px;
+  background:#f0e8d8; border-left:3px solid #0a3d62;
+  margin-bottom:7px;
+}
+.role-num {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:18px; color:#0a3d62; min-width:22px; line-height:1;
+}
+.role-text { font-size:10.5px; line-height:1.5; color:#2c3e50; }
+.role-text strong { color:#0d1b3e; }
+
+.sdg-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+.sdg {
+  font-family:'Montserrat',sans-serif; font-weight:700;
+  font-size:9px; padding:4px 10px; border-radius:20px; color:#fff;
+}
+
+/* ── QR BOX ── */
+.qr-box {
+  border:2px dashed #b0c4de; border-radius:8px;
+  padding:18px 14px; text-align:center;
+  background:#f5ede0; margin-top:12px;
+}
+.qr-placeholder {
+  width:80px; height:80px;
+  border:1.5px dashed #9ab; border-radius:4px;
+  margin:0 auto 8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:32px; opacity:0.25;
+}
+.qr-label {
+  font-family:'Courier Prime',monospace; font-size:8px;
+  letter-spacing:1.5px; color:#8899bb; text-transform:uppercase;
+}
+
+/* ── ASEAN ROW ── */
+.asean-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+}
+.asean-card {
+  border-radius:7px; border:1px solid #dde4f0;
+  border-top:3px solid; padding:12px; background:#faf3e8;
+}
+.asean-flag { font-size:18px; margin-bottom:4px; }
+.asean-country {
+  font-family:'Montserrat',sans-serif; font-weight:800;
+  font-size:12px; margin-bottom:5px;
+}
+.asean-stat {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:22px; line-height:1; margin-bottom:3px;
+}
+.asean-sub { font-size:13px; color:#555; line-height:1.4; }
+
+/* ── REFS ── */
+.refs {
+  background:#ede0cc; padding:12px 18px;
+  border-top:1px solid #ddd0bc;
+}
+.refs-title {
+  font-family:'Courier Prime',monospace; font-size:8px;
+  letter-spacing:2px; color:#0a3d62; text-transform:uppercase;
+  margin-bottom:8px;
+}
+.refs-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 20px; }
+.ref-item { font-size:11.5px; color:#444; line-height:1.6; }
+
+/* ── QUOTE ── */
+.quote-bar {
+  background:linear-gradient(90deg,#0d1b3e,#0a3d62);
+  padding:11px 24px; display:flex; align-items:center; gap:12px;
+}
+.qmark { color:#00e5ff; font-size:28px; font-family:Georgia,serif; line-height:1; }
+.qtext {
+  font-family:'Montserrat',sans-serif; font-style:italic;
+  font-weight:600; font-size:10.5px; color:rgba(255,255,255,0.9);
+  flex:1; text-align:center; line-height:1.5;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background:#0d1b3e; padding:8px 20px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.ft { font-size:8px; color:rgba(255,255,255,0.45); letter-spacing:0.5px; }
+.flogo {
+  font-family:'Montserrat',sans-serif; font-weight:900;
+  font-size:11px; color:#00e5ff; letter-spacing:2px;
+}
+
+/* ── PRINT BTN ── */
+.pbtn {
+  position:fixed; bottom:20px; right:20px;
+  background:#0d1b3e; color:#00e5ff;
+  border:1.5px solid #00e5ff;
+  font-family:'Montserrat',sans-serif; font-weight:700;
+  font-size:11px; padding:10px 18px; border-radius:4px;
+  cursor:pointer; letter-spacing:1px; z-index:999;
+}
+.pbtn:hover { background:#00e5ff; color:#0d1b3e; }
+@media print { .pbtn { display:none; } }
+</style>
+</head>
+<body>
+
+<button class="pbtn no-print" onclick="window.print()">🖨 PRINT / SAVE PDF</button>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <div class="tag">AQUA-SENSE · 5TH INTERNATIONAL YOUTH SUMMIT · MALAYSIA 2026</div>
+  <div class="main-title"><span>AQUA-SENSE:</span> Youth-Driven IoT Innovation to End the Silent Crisis of Flood Disasters in Southeast Asia</div>
+  <div class="subtitle">Affordable · Scalable · Life-Saving</div>
+  <div class="header-meta">
+    <div class="meta-block">
+      <div class="meta-label">Authors</div>
+      <div class="meta-value">Muhammad Aljawady · Muhammad Hafidhul Sultan · Meutia Markhalida · Niswatul Luthfiati · Rahel Tri Andriani</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Institution</div>
+      <div class="meta-value">Universitas Syiah Kuala, Banda Aceh<br>Faculty of Mathematics and Natural Sciences · 2026</div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-label">Conference</div>
+      <div class="meta-value">5th International Youth Summit<br>Kuala Lumpur, Malaysia · May 30–31, 2026</div>
+    </div>
+    <div class="badge">AQUA-SENSE<br><span style="font-size:7px;font-weight:400;letter-spacing:0">Subtheme: Environment</span></div>
+  </div>
+</div>
+
+<!-- ══ STATS BAR ══ -->
+<div class="stats-row">
+  <div class="stat-item">
+    <div class="stat-num" style="color:#ff4040">1,207</div>
+    <div class="stat-desc">Lives lost · Sumatra<br>floods Nov 2025</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" style="color:#00e5ff">6 hrs</div>
+    <div class="stat-desc">Advance warning<br>by AQUA-SENSE</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" style="color:#00ff9d">80%</div>
+    <div class="stat-desc">Potential casualty<br>reduction (BNPB)</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" style="color:#ffe600">10×</div>
+    <div class="stat-desc">Cheaper than<br>conventional systems</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" style="color:#a150ff">180K+</div>
+    <div class="stat-desc">Lives saved in ASEAN<br>per decade (est.)</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num" style="color:#ff9d00">$1:$6</div>
+    <div class="stat-desc">Prevention vs recovery<br>economic ratio</div>
+  </div>
+</div>
+
+<!-- ══ ROW 1: Background | Architecture | Impact ══ -->
+<div class="row" style="grid-template-columns:1fr 1fr;display:grid;border-bottom:1px solid #ddd0bc;">
+
+  <!-- Background + Architecture combined -->
+  <div class="cell">
+    <div class="slabel lb">Background</div>
+    <div class="sec-title">The Silent Crisis</div>
+    <p style="font-size:15px;line-height:1.75;color:#2c3e50;margin-bottom:10px;">
+      Tropical Cyclone Senyar (Nov 2025) killed <strong>1,207 people</strong> across Sumatra — destroying 301,012 homes and displacing 117,000+ residents. BMKG predicted it <strong>8 days in advance</strong>, yet warnings never reached affected communities.
+    </p>
+    <p style="font-size:15px;line-height:1.75;color:#2c3e50;margin-bottom:10px;">
+      Over <strong>40% of countries worldwide</strong> lack adequate early warning systems. Conventional EWS costs <strong>IDR 750 million per point</strong> — beyond reach of most vulnerable regions.
+    </p>
+    <div style="padding:10px 12px;background:rgba(192,57,43,0.07);border-left:3px solid #c0392b;border-radius:4px;margin-bottom:14px;">
+      <p style="font-size:15px;color:#c0392b;line-height:1.6;margin:0;">
+        <strong>This is not a natural failure — it's a system failure.</strong> The technology to prevent it already exists. What's missing is affordability and access.
+      </p>
+    </div>
+
+    <div class="slabel lt" style="margin-top:4px;">System Architecture</div>
+    <div class="sec-title">How AQUA-SENSE Works</div>
+    <div class="arch-step s1">
+      <div class="sn">1</div>
+      <div class="st"><strong>IoT Field Sensors</strong> — Water level, flow rate, rainfall & soil moisture every 30 seconds.</div>
+    </div>
+    <div class="arch-step s2">
+      <div class="sn">2</div>
+      <div class="st"><strong>LoRaWAN Network</strong> — 15 km wireless range. No cell towers or electricity needed.</div>
+    </div>
+    <div class="arch-step s3">
+      <div class="sn">3</div>
+      <div class="st"><strong>AI & Cloud Processing</strong> — Machine learning predicts flooding up to <strong>6 hours ahead.</strong></div>
+    </div>
+    <div class="arch-step s4">
+      <div class="sn">4</div>
+      <div class="st"><strong>3-Level Auto Alert</strong> — SMS blast, physical sirens & radio broadcast. No smartphone needed.</div>
+    </div>
+    <div class="arch-step s5">
+      <div class="sn">5</div>
+      <div class="st"><strong>Cost: IDR 75M/point</strong> — 10× cheaper than conventional. Replicable across ASEAN.</div>
+    </div>
+  </div>
+
+  <!-- Impact -->
+  <div class="cell" style="border-right:none;">
+    <div class="slabel lr">Impact & Results</div>
+    <div class="sec-title">When Numbers Save Lives</div>
+    <div class="big-nums">
+      <div class="bn-item" style="background:linear-gradient(135deg,#fdf0ec,#fde0d8);border:1px solid #f5c6c6;">
+        <div class="bn-num" style="color:#c0392b">~960</div>
+        <div class="bn-label">lives potentially saved<br>from Sumatra alone</div>
+      </div>
+      <div class="bn-item" style="background:linear-gradient(135deg,#eaf7f0,#d8f0e4);border:1px solid #b2dfdb;">
+        <div class="bn-num" style="color:#1a6b3a">Rp75M</div>
+        <div class="bn-label">per monitoring point<br>vs Rp750M conventional</div>
+      </div>
+      <div class="bn-item" style="background:linear-gradient(135deg,#eaf4ff,#d8ebfa);border:1px solid #b0d4f1;">
+        <div class="bn-num" style="color:#0a3d62">15 km</div>
+        <div class="bn-label">LoRaWAN range<br>without any towers</div>
+      </div>
+      <div class="bn-item" style="background:linear-gradient(135deg,#fdf8e8,#faf0d0);border:1px solid #f5e8a0;">
+        <div class="bn-num" style="color:#b7860e">80%</div>
+        <div class="bn-label">casualty reduction<br>with 6-hr warning</div>
+      </div>
+    </div>
+    <div class="bgd">
+      <div class="bgd-title">📖 Lesson from Bangladesh</div>
+      <div class="bgd-nums">
+        <div>
+          <div class="bgd-n" style="color:#ff4040">500,000</div>
+          <div class="bgd-sub">deaths · 1970</div>
+        </div>
+        <div class="bgd-arrow">→</div>
+        <div>
+          <div class="bgd-n" style="color:#00ff9d">26</div>
+          <div class="bgd-sub">deaths · 2020</div>
+        </div>
+      </div>
+      <div class="bgd-body">Community-based early warning cut cyclone deaths by <strong style="color:#ffe600">99.99%</strong> in 50 years. The right system changes everything.</div>
+      <div class="bgd-src">Haque et al. (2012); WMO (2023)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ROW 2: Compare | Features | Vision+QR ══ -->
+<div class="row row-3">
+
+  <!-- Compare -->
+  <div class="cell">
+    <div class="slabel ld">Before vs After</div>
+    <div class="sec-title">AQUA-SENSE vs Conventional</div>
+    <table class="ctable">
+      <thead>
+        <tr>
+          <th class="th-m">Indicator</th>
+          <th class="th-b">Without</th>
+          <th class="th-a">With AQUA-SENSE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Warning time</td><td class="tb">0 hours</td><td class="ta">Up to 6 hours</td></tr>
+        <tr><td>Cost / point</td><td class="tb">Rp 750M</td><td class="ta">Rp 75M</td></tr>
+        <tr><td>Infrastructure</td><td class="tb">High dependency</td><td class="ta">Battery + LoRaWAN</td></tr>
+        <tr><td>Remote coverage</td><td class="tb">Very limited</td><td class="ta">Up to 15 km</td></tr>
+        <tr><td>Casualty reduction</td><td class="tb">0%</td><td class="ta">Up to 80%</td></tr>
+        <tr><td>ASEAN replication</td><td class="tb">Unaffordable</td><td class="ta">Widely replicable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key Features -->
+  <div class="cell">
+    <div class="slabel lg">Key Features</div>
+    <div class="sec-title">Why It Works Everywhere</div>
+    <div class="feat">
+      <div class="feat-icon">📡</div>
+      <div class="feat-text"><strong>LoRaWAN · 15 km Range</strong><br>No cellular signal or stable electricity required.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📱</div>
+      <div class="feat-text"><strong>SMS-Based Alerts</strong><br>Works on any basic phone. No internet needed.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🤖</div>
+      <div class="feat-text"><strong>AI Prediction Engine</strong><br>Combines water level + rainfall + soil moisture for 6-hr forecast.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🌏</div>
+      <div class="feat-text"><strong>ASEAN-Scalable</strong><br>Adapts from Mekong Delta to Irrawaddy Valley. Open cross-border protocol.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🏘️</div>
+      <div class="feat-text"><strong>Community-Ready</strong><br>Village coordinators & evacuation training built into the system.</div>
+    </div>
+  </div>
+
+  <!-- Vision + QR -->
+  <div class="cell">
+    <div class="slabel lp">Vision & Policy</div>
+    <div class="sec-title">Youth as Policy Architects</div>
+    <div class="role-item">
+      <div class="role-num">①</div>
+      <div class="role-text"><strong>Innovator</strong> — Develop & adapt AQUA-SENSE across ASEAN geographies and cultures.</div>
+    </div>
+    <div class="role-item">
+      <div class="role-num">②</div>
+      <div class="role-text"><strong>Policy Advocate</strong> — Bring evidence to ASEAN Disaster Management meetings & Sendai evaluations.</div>
+    </div>
+    <div class="role-item">
+      <div class="role-num">③</div>
+      <div class="role-text"><strong>Community Bridge</strong> — Ensure technology reaches those who need it most.</div>
+    </div>
+    <div class="sdg-row">
+      <span class="sdg" style="background:#4CAF50;">SDG 11</span>
+      <span class="sdg" style="background:#FF5722;">SDG 13</span>
+      <span class="sdg" style="background:#2196F3;">SDG 17</span>
+      <span class="sdg" style="background:#9C27B0;">SDG 3</span>
+    </div>
+    <!-- QR CODE -->
+    <div class="qr-box">
+      <div class="qr-placeholder">⬜</div>
+      <div class="qr-label">Scan · Full Paper & Demo</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ROW 3: ASEAN Context ══ -->
+<div class="row row-1">
+  <div class="cell">
+    <div class="slabel lb">ASEAN Context</div>
+    <div class="sec-title" style="margin-bottom:12px;">Southeast Asia: The World's Most Flood-Vulnerable Region</div>
+    <div class="asean-grid">
+      <div class="asean-card" style="border-top-color:#ff4040;">
+        <div class="asean-flag">🇮🇩</div>
+        <div class="asean-country" style="color:#c0392b;">Indonesia</div>
+        <div class="asean-stat" style="color:#c0392b;">1,207</div>
+        <div class="asean-sub">deaths · Sumatra 2025<br>301,012 homes damaged<br>53 districts affected</div>
+      </div>
+      <div class="asean-card" style="border-top-color:#ff4040;">
+        <div class="asean-flag">🇻🇳</div>
+        <div class="asean-country" style="color:#c0392b;">Vietnam</div>
+        <div class="asean-stat" style="color:#c0392b;">500</div>
+        <div class="asean-sub">deaths per year avg.<br>past 10 years from floods<br>(Open Dev. Mekong, 2023)</div>
+      </div>
+      <div class="asean-card" style="border-top-color:#ff4040;">
+        <div class="asean-flag">🇵🇭</div>
+        <div class="asean-country" style="color:#c0392b;">Philippines</div>
+        <div class="asean-stat" style="color:#c0392b;">$4.3B</div>
+        <div class="asean-sub">economic loss per year<br>from climate disasters<br>(ICSC, 2023)</div>
+      </div>
+      <div class="asean-card" style="border-top-color:#ffe600;">
+        <div class="asean-flag">🌏</div>
+        <div class="asean-country" style="color:#b7860e;">ASEAN Overall</div>
+        <div class="asean-stat" style="color:#b7860e;">4,500+</div>
+        <div class="asean-sub">critical flood-prone points<br>majority without adequate EWS<br>670M+ residents at risk</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ REFS ══ -->
+<div class="refs">
+  <div class="refs-title">References & Acknowledgements</div>
+  <div class="refs-grid">
+    <div class="ref-item">BNPB (2026). Update korban bencana Sumatera. <em>nasional.kompas.com</em></div>
+    <div class="ref-item">UN Secretary-General (2019). Remarks on disaster risk reduction. <em>press.un.org</em></div>
+    <div class="ref-item">Haque et al. (2012). Reduced death rates from cyclones in Bangladesh. <em>Bull. WHO, 90</em>(2).</div>
+    <div class="ref-item">Open Development Mekong (2023). Disasters in Vietnam. <em>opendevelopmentmekong.net</em></div>
+    <div class="ref-item">UNDRR (2024). Global status of multi-hazard early warning systems. <em>undrr.org</em></div>
+    <div class="ref-item">ICSC (2023). Storms and floods to cost Philippines $124B by 2050. <em>icsc.ngo</em></div>
+    <div class="ref-item">WMO (2023). Atlas of mortality and economic losses 1970–2021. <em>wmo.int</em></div>
+    <div class="ref-item">BMKG (2025). Analisis Siklon Tropis Senyar. <em>bmkg.go.id</em></div>
+  </div>
+  <p style="font-size:8px;color:#999;margin-top:8px;text-align:center;">Special thanks to Universitas Syiah Kuala and all supporting institutions for this youth-driven innovation.</p>
+</div>
+
+<!-- ══ QUOTE ══ -->
+<div class="quote-bar">
+  <div class="qmark">"</div>
+  <div class="qtext">The best policies are not designed behind desks — they are born from those who have felt firsthand what happens when those policies are absent.</div>
+  <div class="qmark">"</div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  <div class="ft">AQUA-SENSE · Universitas Syiah Kuala, Banda Aceh · 2026</div>
+  <div class="flogo">AQUA-SENSE</div>
+  <div class="ft">5th International Youth Summit · Kuala Lumpur · May 30–31, 2026</div>
+</div>
+
+</body>
+</html>
